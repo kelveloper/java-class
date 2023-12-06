@@ -27,25 +27,12 @@ public class Adder2 {
                 operand1 = Integer.parseInt(myScanner.nextLine());
 
                 if (operand1 >= 1 && operand1 <= 10) {
-                    isValid = true;
-                }
+                    System.out.println("Please enter the second number to be added (from 1 - 10): ");
+                    operand2 = Integer.parseInt(myScanner.nextLine());
 
-            } catch(NumberFormatException ex) {
-                System.out.println("That was not a number!");
-            }
-
-        } while(!isValid);
-
-        isValid = false;
-        do {
-
-            try {
-                System.out.println("Please enter the second number to be added (from 1 - 10): ");
-                //System.out.println("Please enter the second number to be added: ");
-                operand2 = Integer.parseInt(myScanner.nextLine());
-
-                if (operand2 >= 1 && operand2 <= 10) {
-                    isValid = true;
+                        if (operand2 >= 1 && operand2 <= 10) {
+                            isValid = true;
+                        }
                 }
 
             } catch(NumberFormatException ex) {
@@ -64,6 +51,6 @@ public class Adder2 {
         sum = operand1 + operand2;
 
         // print the sum to the console
-        System.out.println("Sum is: " + (operand1 + operand2));
+        System.out.println("Sum is: " + sum);
     }
 }

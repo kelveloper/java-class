@@ -3,6 +3,7 @@ package com.sg.foundations.basics.methods;
 public class MethodToTheMadness {
     public static void main(String[] args) {
         eatMe();
+        drinkMe();
 
         System.out.println("\n ― Lewis Carroll, Alice in Wonderland");
     }

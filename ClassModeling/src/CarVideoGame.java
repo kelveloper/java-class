@@ -1,6 +1,8 @@
 public class CarVideoGame {
     private String gameTitle;
-    private int copiesSold;
+    private final int copiesSold;
+
+    // private int soldAfterTwoYrs;
 
     public String getGameTitle() {
         return gameTitle;
@@ -14,8 +16,8 @@ public class CarVideoGame {
         return copiesSold;
     }
 
-    public void setCopiesSold(int copiesSold) {
-        this.copiesSold = copiesSold;
+    public int getSoldAfterTwoYrs() {
+        return getCopiesSold() * 2;
     }
 
     public CarVideoGame(String gameTitle, int copiesSold) {

@@ -26,11 +26,13 @@ public class CarInventory {
     public void setInStock(int inStock) {
         this.inStock = inStock;
     }
+    public CarInventory() {
 
-
+    }
     public CarInventory(String carModel, int inStock) {
         this.carModel = carModel;
         this.inStock = inStock;
     }
+
 
 }

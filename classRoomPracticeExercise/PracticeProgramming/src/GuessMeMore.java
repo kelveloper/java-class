@@ -11,7 +11,7 @@ public class GuessMeMore {
         Scanner inputReader = new Scanner(System.in);
 
         System.out.println("I've chosen a number between -100 and 100. Bet you can't guess it!");
-        myNumber = randomizer.nextInt(-100,100);
+        myNumber = randomizer.nextInt(100) - 100; // get negative #, subtract number at the end of the bound
 
         // print what the user entered
         System.out.println("Your guess: ");
