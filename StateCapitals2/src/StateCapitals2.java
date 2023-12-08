@@ -6,20 +6,20 @@ public class StateCapitals2 {
     public static void main(String[] args) throws Exception{
         Map<String, String> stateCapital = new HashMap<>();
         String state, capital;
+        String state1 = "";
+        int count = 0;
 
         Random randomizer = new Random();
         Scanner sc = new Scanner(new BufferedReader
                 (new FileReader("StateCapitals.txt")));
         Scanner inputUser = new Scanner(System.in);
 
-        System.out.println("50 STATES & CAPITALS ARE LOADED."); // 50 needs to be read from the HashMap
-        System.out.println("=======");
-        System.out.println("HERE ARE THE STATES :");
-
         // read the file line by line
         while (sc.hasNextLine()) {
             String currentLine = sc.nextLine();
             //System.out.println(currentLine);
+
+            count++;
 
             // split the line by ::
             String[] parts = currentLine.split("::");
@@ -27,7 +27,8 @@ public class StateCapitals2 {
 
             // first part is state, second is capital
             state = parts[0].trim();
-            System.out.print(state + " ");
+            state1 += parts[0].trim() + " ";
+            //System.out.print(state + " ");
             capital = parts[1].trim();
 
             // put state and capital in HashMap if they are empty
@@ -36,6 +37,10 @@ public class StateCapitals2 {
             }
         }
 
+        System.out.println(count + " STATES & CAPITALS ARE LOADED."); // 50 needs to be read from the HashMap
+        System.out.println("=======");
+        System.out.println("HERE ARE THE STATES :");
+        System.out.print(state1);
         System.out.println();
 
         // get the Set of keys from the map
@@ -70,4 +75,9 @@ public class StateCapitals2 {
 
     }
 }
-
+/*
+Stretch goal:
+Ask them how many they want to guess, and choose that many states. (Don't allow duplicates!)
+Give them a point for each correct guess, and subtract one for each miss.
+Print out a total score at the end.
+*/
