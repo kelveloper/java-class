@@ -1,6 +1,5 @@
 package com.sg.classroster.controller;
 
-import com.sg.classroster.dao.ClassRosterDao;
 import com.sg.classroster.dao.ClassRosterPersistenceException;
 import com.sg.classroster.dto.Student;
 import com.sg.classroster.service.ClassRosterDataValidationException;

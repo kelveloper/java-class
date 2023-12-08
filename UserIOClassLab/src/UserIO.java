@@ -1,7 +1,11 @@
-package com.sg.classroster.ui;
-
 public interface UserIO {
-    void print(String prompt);
+    void print(String message);
+
+    String readString(String prompt);
+
+    int readInt(String prompt);
+
+    int readInt(String prompt, int min, int max);
 
     double readDouble(String prompt);
 
@@ -11,13 +15,7 @@ public interface UserIO {
 
     float readFloat(String prompt, float min, float max);
 
-    int readInt(String prompt);
-
-    int readInt(String prompt, int min, int max);
-
     long readLong(String prompt);
 
     long readLong(String prompt, long min, long max);
-
-    String readString(String prompt);
 }

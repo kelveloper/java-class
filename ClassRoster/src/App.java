@@ -1,5 +1,3 @@
-package com.sg.classroster;
-
 import com.sg.classroster.controller.ClassRosterController;
 import com.sg.classroster.dao.ClassRosterAuditDao;
 import com.sg.classroster.dao.ClassRosterAuditDaoFileImpl;

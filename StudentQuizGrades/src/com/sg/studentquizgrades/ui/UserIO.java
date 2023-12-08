@@ -1,7 +1,7 @@
-package com.sg.classroster.ui;
+package com.sg.studentquizgrades.ui;
 
 public interface UserIO {
-    void print(String prompt);
+    void print(String msg);
 
     double readDouble(String prompt);
 
