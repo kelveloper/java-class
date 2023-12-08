@@ -1,18 +1,17 @@
-public class Shape {
-        protected String color;
-        protected int area, perimeter;
+public abstract class Shape {
+    public String color() {
+        return "blue";
+    }
+
+    public abstract double getArea();
+
+    public abstract double getPerimeter();
+
 
     /*
-    public static void main(String[] args) {
-        Square square = new Square();
-        square.getArea(3,2);
-        System.out.println(square.getArea(3,2));
+    public String toShow() { //it works;
+        System.out.println("PARENTS SHOW");
+        return "PARENTS SHOW";
     }
-    */
-        public int getArea() {
-        // leave empty to override
-    }
-
-
-
+     */
 }

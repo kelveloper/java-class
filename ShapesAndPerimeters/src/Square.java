@@ -1,8 +1,24 @@
 public class Square extends Shape {
-    int area, perimeter, height, width;
+    double length, width;
+public Square (double length, double width) {
+    this.length = length;
+    this.width = width;
+}
 
-    public int getArea(int height, int width) {
-        return height * width;
+    @Override public double getArea() {
+        return length * width;
     }
+    @Override public double getPerimeter() {
+        return 2 * (length * width);
+    }
+
+    /*
+    public String toShow() {
+        super.toShow(); // adds super and this method together
+        System.out.println("Child Show");
+        return "Child Show yo";
+    }
+     */
+
 
 }
