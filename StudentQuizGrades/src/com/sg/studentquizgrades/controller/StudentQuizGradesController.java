@@ -1,35 +1,35 @@
 package com.sg.studentquizgrades.controller;
 
+import com.sg.studentquizgrades.dao.StudentQuizGradesDao;
+import com.sg.studentquizgrades.dao.StudentQuizGradesDaoFileImpl;
+import com.sg.studentquizgrades.dto.Student;
 import com.sg.studentquizgrades.ui.StudentQuizGradesView;
 import com.sg.studentquizgrades.ui.UserIO;
 import com.sg.studentquizgrades.ui.UserIOConsoleImpl;
 
+import java.util.List;
+
 public class StudentQuizGradesController {
     private StudentQuizGradesView view = new StudentQuizGradesView();
+    private StudentQuizGradesDao dao = new StudentQuizGradesDaoFileImpl();
     private UserIO io = new UserIOConsoleImpl();
 
     public void run() {
         boolean keepGoing = true;
         int menuSelection = 0;
         while (keepGoing) {
-            io.print("Main Menu");
-            io.print("1. List Student IDs");
-            io.print("2. Create New Student");
-            io.print("3. View a Student");
-            io.print("4. Remove a Student");
-            io.print("5. Exit");
 
             menuSelection = getMenuSelection();
 
             switch (menuSelection) {
                 case 1:
-                    io.print("View a list of students");
+                    listStudents();
                     break;
                 case 2:
-                    io.print("CREATE STUDENT");
+                    createStudent();
                     break;
                 case 3:
-                    io.print("VIEW STUDENT");
+                    viewStudent();;
                     break;
                 case 4:
                     io.print("REMOVE STUDENT");
@@ -46,5 +46,30 @@ public class StudentQuizGradesController {
     }
     private int getMenuSelection() {
         return view.printMenuAndGetSelection();
+    }
+
+    private void listStudents() {
+        view.displayDisplayAllBanner();
+        List<Student> studentList = dao.getAllStudents();
+        view.displayStudentList(studentList);
+    }
+
+    private void listNameQuizScore() {
+        view.displayCreateStudentBanner();
+
+    }
+
+    private void createStudent() {
+        view.displayCreateStudentBanner();
+        Student newStudent = view.getNewStudentInfo();
+        dao.addStudent(newStudent.getStudentId(), newStudent);
+        view.displayCreateSuccessBanner();
+    }
+
+    private void viewStudent() {
+        view.displayDisplayStudentBanner();
+        String studentId = view.getStudentIdChoice();
+        Student student = dao.getStudent(studentId);
+        view.displayStudent(student);
     }
 }

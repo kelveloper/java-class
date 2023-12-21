@@ -4,9 +4,10 @@ public class Student {
     private String firstName;
     private String lastName;
     private String studentId;
-    private String [] studentQuizScores;
+    private int quizGrade;
 
     public Student(String studentId) {
+
         this.studentId = studentId;
     }
 
@@ -30,11 +31,14 @@ public class Student {
         return studentId;
     }
 
-    public String[] studentQuizScores() {
-        return studentQuizScores;
+    public int getQuizGrade() {
+        return quizGrade;
     }
 
-    public void studentQuizScores(String [] studentQuizScores) {
-        this.studentQuizScores = studentQuizScores;
+    public String studentName() {
+        return firstName + " " + lastName;
+    }
+    public void setQuizGrade(int quizGrade) {
+        this.quizGrade = quizGrade;
     }
 }

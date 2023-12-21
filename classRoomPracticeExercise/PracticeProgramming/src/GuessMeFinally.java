@@ -1,5 +1,3 @@
-package com.sg.foundations.basics.core;
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -7,6 +5,7 @@ public class GuessMeFinally {
     public static void main(String[] args) {
 
         int myNumber, yourNumber;
+        int count = 0;
         Random randomizer = new Random();
         Scanner inputReader = new Scanner(System.in);
 
@@ -20,36 +19,30 @@ public class GuessMeFinally {
 
         // If they get it on the first try print out "Wow, nice guess! That was it!"
         // otherwise print out "Finally! It's about time you got it!" *** STILL WRONG!!! ***
-        if (yourNumber == myNumber) {
-            System.out.println("Wow, nice guess! That was it!");
-        }
-        do {
 
-            if (yourNumber == myNumber) {
-                System.out.println("Finally! It's about time you got it!");
-            }
+        do {
             if (yourNumber != myNumber) {
                 if (yourNumber < myNumber) {
                     System.out.println("Ha, nice try - too low! Try again!");
                     System.out.println("Your guess: ");
                     yourNumber = Integer.parseInt(inputReader.nextLine());
+                    count++;
 
                 }
                 if (yourNumber > myNumber) {
                     System.out.println("Too bad, way too high. Try again! ");
                     System.out.println("Your guess: ");
                     yourNumber = Integer.parseInt(inputReader.nextLine());
-
-                    if (yourNumber == myNumber) {
-                        System.out.println("Wow, nice guess! That was it!");
-                    }
-
+                    count++;
                 }
             }
 
         } while (myNumber != yourNumber);
         // if choice is equal to my number, print "Wow, nice guess! That was it!"
 
+        if (yourNumber == myNumber && count == 0) System.out.println("Wow, nice guess! That was it!");
+        if (yourNumber == myNumber) {
+            System.out.println("Finally! It's about time you got it!");
+        }
     }
 }
-// We are here!!!

@@ -12,6 +12,11 @@ public class UserIOConsoleImpl implements UserIO {
     }
 
     @Override
+    public void printInt(int msg) {
+        System.out.println(msg);
+    }
+
+    @Override
     public String readString(String msgPrompt) {
         System.out.println(msgPrompt);
         return console.nextLine();

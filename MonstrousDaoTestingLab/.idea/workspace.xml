@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0db4e35b-157b-4dbf-b779-07a8c38a19f0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../ClassRoster/src/com/sg/classroster/dao/ClassRosterDaoFileImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClassRoster/src/com/sg/classroster/dao/ClassRosterDaoStubImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClassRoster/src/com/sg/classroster/service/ClassRosterAuditDaoStubImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClassRoster/src/com/sg/classroster/service/ClassRosterServiceLayerImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Enum/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../classRoomPracticeExercise/PracticeProgramming/src/BewareTheKraken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClassRoster/ClassRoster.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ClassRoster/ClassRoster.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClassRoster/audit.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ClassRoster/audit.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClassRoster/src/com/sg/classroster/controller/ClassRosterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ClassRoster/src/com/sg/classroster/controller/ClassRosterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClassRoster/src/com/sg/classroster/dao/ClassRosterDaoFileImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ClassRoster/src/com/sg/classroster/dao/ClassRosterDaoFileImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClassRoster/src/com/sg/classroster/dto/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ClassRoster/src/com/sg/classroster/dto/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClassRoster/src/com/sg/classroster/ui/UserIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ClassRoster/src/com/sg/classroster/ui/UserIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShapesAndPerimeters/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ShapesAndPerimeters/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShapesAndPerimeters/src/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ShapesAndPerimeters/src/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentQuizGrades/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../StudentQuizGrades/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentQuizGrades/src/com/sg/studentquizgrades/controller/StudentQuizGradesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../StudentQuizGrades/src/com/sg/studentquizgrades/controller/StudentQuizGradesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentQuizGrades/src/com/sg/studentquizgrades/dao/StudentQuizGradesDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../StudentQuizGrades/src/com/sg/studentquizgrades/dao/StudentQuizGradesDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentQuizGrades/src/com/sg/studentquizgrades/dao/StudentQuizGradesDaoFileImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../StudentQuizGrades/src/com/sg/studentquizgrades/dao/StudentQuizGradesDaoFileImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentQuizGrades/src/com/sg/studentquizgrades/dto/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../StudentQuizGrades/src/com/sg/studentquizgrades/dto/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentQuizGrades/src/com/sg/studentquizgrades/ui/StudentQuizGradesView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../StudentQuizGrades/src/com/sg/studentquizgrades/ui/StudentQuizGradesView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentQuizGrades/src/com/sg/studentquizgrades/ui/UserIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../StudentQuizGrades/src/com/sg/studentquizgrades/ui/UserIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentQuizGrades/src/com/sg/studentquizgrades/ui/UserIOConsoleImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../StudentQuizGrades/src/com/sg/studentquizgrades/ui/UserIOConsoleImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserIOClassLab/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserIOClassLab/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../classRoomPracticeExercise/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../classRoomPracticeExercise/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../classRoomPracticeExercise/PracticeProgramming/src/GuessMeFinally.java" beforeDir="false" afterPath="$PROJECT_DIR$/../classRoomPracticeExercise/PracticeProgramming/src/GuessMeFinally.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../classRoomPracticeExercise/out/production/PracticeProgramming/BarelyControlledChaos.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../classRoomPracticeExercise/out/production/PracticeProgramming/LovesMe.class" beforeDir="false" afterPath="$PROJECT_DIR$/../classRoomPracticeExercise/out/production/PracticeProgramming/LovesMe.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../classRoomPracticeExercise/out/production/PracticeProgramming/com/sg/foundations/basics/core/GuessMeMore.class" beforeDir="false" afterPath="$PROJECT_DIR$/../classRoomPracticeExercise/out/production/PracticeProgramming/com/sg/foundations/basics/core/GuessMeMore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../classRoomPracticeExercise/out/production/PracticeProgramming/com/sg/foundations/basics/methods/MethodToTheMadness.class" beforeDir="false" afterPath="$PROJECT_DIR$/../classRoomPracticeExercise/out/production/PracticeProgramming/com/sg/foundations/basics/methods/MethodToTheMadness.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2ZL2YqfdpgsNSnfjTykJ1k7xudl" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/kelvi/Documents/kelveloper_repos/java-class/MonstrousDaoTestingLab"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0db4e35b-157b-4dbf-b779-07a8c38a19f0" name="Changes" comment="" />
+      <created>1702187090001</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1702187090001</updated>
+    </task>
+    <servers />
+  </component>
+</project>

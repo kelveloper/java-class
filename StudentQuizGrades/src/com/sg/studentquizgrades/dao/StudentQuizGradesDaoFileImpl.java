@@ -1,33 +1,39 @@
 package com.sg.studentquizgrades.dao;
 
 import com.sg.studentquizgrades.dto.Student;
-
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class StudentQuizGradesDaoFileImpl implements StudentQuizGradesDao {
 
-    private Map<String, Integer[]> students = new HashMap<>();
+    private Map<String, Student> students = new HashMap<>();
+    private Map<String, List<Integer> quizGrades = new HashMap<>();
     @Override
-    public Integer[] addStudent(String studentId, Integer [] student) {
-
-        Integer[] prevStudent = students.put(studentId, student);
+    public Student addStudent(String studentId, Student student) {
+        Student prevStudent = students.put(studentId, student);
         return prevStudent;
     }
-
+    @Override
+    public Student quizScores(String studentName, List<Integer> quizzes) {
+        Student prevStudent = quizGrades.put(studentName,quizzes);
+        return prevStudent;
+    }
     @Override
     public List<Student> getAllStudents() {
-        return null;
-    }
-
-    @Override
-    public Student getStudent(String studentId) {
-        return null;
+        return new ArrayList<Student>(students.values());
     }
 
     @Override
     public Student removeStudent(String studentId) {
-        return null;
+        throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public Student getStudent(String studentId) {
+        return students.get(studentId);
+    }
+
+
 }
