@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 "Hello, World!"
+=======
+"Hello, World!"
+>>>>>>> 6a51527984e9c113aa8e3981d95c1f1168074c88
 "We've added a new feature!"

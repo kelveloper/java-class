@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class Dog {
 
     private String name;
@@ -27,4 +28,35 @@ public class Dog {
         System.out.println("Sitting...");
     }
 
+=======
+public class Dog {
+
+    private String name;
+    private double weight;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public void bark() {
+        System.out.println("WOOF!");
+    }
+
+    public void sit() {
+        System.out.println("Sitting...");
+    }
+
+>>>>>>> 6a51527984e9c113aa8e3981d95c1f1168074c88
 }
