@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ClassRosterDaoFileImplTest {
 
-    ClassRosterDao testDao;
+    com.sg.classroster.dao.ClassRosterDao testDao;
 
     public ClassRosterDaoFileImplTest() {
     }

@@ -1,32 +1,8 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ClassModeling/ClassModeling.iml" filepath="$PROJECT_DIR$/ClassModeling/ClassModeling.iml" />
-      <module fileurl="file://$PROJECT_DIR$/classRoomPracticeExercise/HelloWorld/HelloWorld.iml" filepath="$PROJECT_DIR$/classRoomPracticeExercise/HelloWorld/HelloWorld.iml" />
-      <module fileurl="file://$PROJECT_DIR$/classRoomPracticeExercise/Main/Main.iml" filepath="$PROJECT_DIR$/classRoomPracticeExercise/Main/Main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/classRoomPracticeExercise/PracticeProgramming/PracticeProgramming.iml" filepath="$PROJECT_DIR$/classRoomPracticeExercise/PracticeProgramming/PracticeProgramming.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SimpleCalculator/SimpleCalculator.iml" filepath="$PROJECT_DIR$/SimpleCalculator/SimpleCalculator.iml" />
-      <module fileurl="file://$PROJECT_DIR$/classRoomPracticeExercise/WindowMaster/WindowMaster.iml" filepath="$PROJECT_DIR$/classRoomPracticeExercise/WindowMaster/WindowMaster.iml" />
-      <module fileurl="file://$PROJECT_DIR$/classRoomPracticeExercise/debugpractice1/debugpractice1.iml" filepath="$PROJECT_DIR$/classRoomPracticeExercise/debugpractice1/debugpractice1.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-class.iml" filepath="$PROJECT_DIR$/.idea/java-class.iml" />
     </modules>
   </component>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/ClassModeling/ClassModeling.iml" filepath="$PROJECT_DIR$/ClassModeling/ClassModeling.iml" />
-      <module fileurl="file://$PROJECT_DIR$/classRoomPracticeExercise/HelloWorld/HelloWorld.iml" filepath="$PROJECT_DIR$/classRoomPracticeExercise/HelloWorld/HelloWorld.iml" />
-      <module fileurl="file://$PROJECT_DIR$/classRoomPracticeExercise/Main/Main.iml" filepath="$PROJECT_DIR$/classRoomPracticeExercise/Main/Main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/classRoomPracticeExercise/PracticeProgramming/PracticeProgramming.iml" filepath="$PROJECT_DIR$/classRoomPracticeExercise/PracticeProgramming/PracticeProgramming.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SimpleCalculator/SimpleCalculator.iml" filepath="$PROJECT_DIR$/SimpleCalculator/SimpleCalculator.iml" />
-      <module fileurl="file://$PROJECT_DIR$/classRoomPracticeExercise/WindowMaster/WindowMaster.iml" filepath="$PROJECT_DIR$/classRoomPracticeExercise/WindowMaster/WindowMaster.iml" />
-      <module fileurl="file://$PROJECT_DIR$/classRoomPracticeExercise/debugpractice1/debugpractice1.iml" filepath="$PROJECT_DIR$/classRoomPracticeExercise/debugpractice1/debugpractice1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/java-class.iml" filepath="$PROJECT_DIR$/.idea/java-class.iml" />
-    </modules>
-  </component>
->>>>>>> 6a51527984e9c113aa8e3981d95c1f1168074c88
 </project>

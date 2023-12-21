@@ -1283,3 +1283,117 @@ There is obviously something seriously wrong with the XXX website. It is not per
 (2205306, '2016-11-11', 'Debt collection', 'Medical', 'False statements or representation', 'Attempted to collect wrong amount', null, 'Company believes it acted appropriately as authorized by contract or law', 'Macejkovic, Haag and Batz', 'VA', '23181', '', 0, 'Web', '2016-11-11', 'Closed with explanation', 1, 0),
 (2430771, '2017-04-11', 'Mortgage', 'Other mortgage', 'Application, originator, mortgage broker', null, null, 'Company has responded to the consumer and the CFPB and chooses not to provide a public response', 'Veum Group', 'CA', '92629', '', null, 'Phone', '2017-04-12', 'Closed with explanation', 1, 0);
 
+USE ConsumerComplaints;
+
+DESCRIBE Complaint;
+
+USE ConsumerComplaints; 
+
+SELECT DateReceived, Product, Company, State -- to view a list of the dates received, products, companies, and states
+FROM Complaint;
+
+USE ConsumerComplaints; 
+
+SELECT *	-- want all columns, you don't have to list them explicitly; use the asterisk * symbol
+FROM Complaint;
+
+USE ConsumerComplaints;
+
+-- Two dashes is a SQL comment. This line is ignored.
+-- If your query has many columns, you may want to stack them for readability. -- Whitespace is ignored.
+
+SELECT 
+  DateReceived, 
+  Product, 
+  Issue, 
+  Company
+FROM Complaint
+WHERE State = 'LA';
+
+USE ConsumerComplaints;
+
+SELECT *
+FROM Complaint
+WHERE State = 'LA'
+AND (Product = 'Mortgage' OR Product = 'Debt collection'); -- we force boolean operator precedence by using PARAENTHESES, just like math.
+
+USE ConsumerComplaints;
+
+SELECT *
+FROM Complaint
+WHERE State = 'LA'
+AND Product = 'Mortgage' OR Product = 'Debt collection'; -- ignores state completely, we DON'T want this.
+
+USE ConsumerComplaints;
+
+SELECT 
+  Product, 
+  Issue, 
+  Company, 
+  ResponseToConsumer
+FROM Complaint
+WHERE ConsumerDisputed = 1		-- when boolean is true, not FALSE nor NULL
+AND ConsumerConsent = 1
+AND Product NOT IN ('Mortgage', 'Debt collection');
+
+USE ConsumerComplaints;
+
+SELECT	-- Did anyone submit a complaint on New Year's Day, 2014? looks like none. 
+	Product,
+	Issue,
+    SubIssue,
+    ComplaintNarrative,
+    DateSentToCompany,
+    TimelyResponse
+FROM Complaint
+WHERE DateSentToCompany = '2014-01-01';
+
+USE ConsumerComplaints;
+
+SELECT -- which Complaints mention 'loan' in their Issue?
+	ComplaintId,
+    Issue
+FROM Complaint
+WHERE Issue LIKE '%loan%'; 
+
+USE ConsumerComplaints;
+
+SELECT *
+FROM Complaint
+WHERE SubProduct IS NULL;SELECT * FROM Complaint WHERE SubProduct IS NOT NULL; -- where subProduct is not null
+
+SELECT *
+FROM Complaint
+WHERE ComplaintId > 15000 OR ComplaintId IS NULL;
+
+SELECT *
+FROM Complaint
+WHERE SubIssue = 'Account status'
+OR SubIssue IS NULL;
+
+-- All Complaints with a value for ComplaintNarrative. 
+-- Exclude null values.
+SELECT *
+FROM Complaint
+WHERE ComplaintNarrative IS NOT NULL;
+
+USE ConsumerComplaints;
+
+SELECT 
+ComplaintId, 
+DateReceived, 
+DateSentToCompany, 
+DateDiff(DateSentToCompany, DateReceived) AS DateDifference -- performing calculations. optionally naming the column DateDifference using the AS keyword
+FROM Complaint;
+
+USE ConsumerComplaints;
+
+SELECT 
+ComplaintId, 
+DateReceived, 
+DateSentToCompany, 
+DateDiff(DateSentToCompany, DateReceived) AS DateDifference
+FROM Complaint
+WHERE DateDiff(DateSentToCompany, DateReceived) > 100; -- performing calculations where date difference is more than 100 days
+    
+	

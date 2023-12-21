@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ### IntelliJ IDEA ###
 out/
 !**/src/main/**/out/
@@ -27,7 +26,7 @@ bin/
 .vscode/
 
 ### Mac OS ###
-=======
+
 ### IntelliJ IDEA ###
 out/
 !**/src/main/**/out/
@@ -56,5 +55,4 @@ bin/
 .vscode/
 
 ### Mac OS ###
->>>>>>> 6a51527984e9c113aa8e3981d95c1f1168074c88
 .DS_Store
