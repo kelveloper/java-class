@@ -1,28 +1,8 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HelloWorld/HelloWorld.iml" filepath="$PROJECT_DIR$/HelloWorld/HelloWorld.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Main/Main.iml" filepath="$PROJECT_DIR$/Main/Main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/PracticeProgramming/PracticeProgramming.iml" filepath="$PROJECT_DIR$/PracticeProgramming/PracticeProgramming.iml" />
-      <module fileurl="file://$PROJECT_DIR$/WindowMaster/WindowMaster.iml" filepath="$PROJECT_DIR$/WindowMaster/WindowMaster.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/classRoomPracticeExercise.iml" filepath="$PROJECT_DIR$/.idea/classRoomPracticeExercise.iml" />
-      <module fileurl="file://$PROJECT_DIR$/debugpractice1/debugpractice1.iml" filepath="$PROJECT_DIR$/debugpractice1/debugpractice1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ClassRoomPracticeExercise.iml" filepath="$PROJECT_DIR$/.idea/ClassRoomPracticeExercise.iml" />
     </modules>
   </component>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/HelloWorld/HelloWorld.iml" filepath="$PROJECT_DIR$/HelloWorld/HelloWorld.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Main/Main.iml" filepath="$PROJECT_DIR$/Main/Main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/PracticeProgramming/PracticeProgramming.iml" filepath="$PROJECT_DIR$/PracticeProgramming/PracticeProgramming.iml" />
-      <module fileurl="file://$PROJECT_DIR$/WindowMaster/WindowMaster.iml" filepath="$PROJECT_DIR$/WindowMaster/WindowMaster.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/classRoomPracticeExercise.iml" filepath="$PROJECT_DIR$/.idea/classRoomPracticeExercise.iml" />
-      <module fileurl="file://$PROJECT_DIR$/debugpractice1/debugpractice1.iml" filepath="$PROJECT_DIR$/debugpractice1/debugpractice1.iml" />
-    </modules>
-  </component>
->>>>>>> 6a51527984e9c113aa8e3981d95c1f1168074c88
 </project>

@@ -11198,3 +11198,80 @@ FROM goal
 WHERE goalId = 3 or goalId = 8 or goalId = 15;
 
 -- Practice Exercises: JOIN Queries --
+USE personaltrainer; -- Select all columns from ExerciseCategory and Exercise. 64 rows
+SELECT *
+FROM exerciseCategory as ec
+INNER JOIN exercise as e ON e.exerciseCategoryId = ec.exerciseCategoryId;
+
+USE personaltrainer; -- Select ExerciseCategory.Name and Exercise.Name where the ExerciseCategory does not have a ParentCategoryId (it is null).
+SELECT 				 -- 9 rows
+	ec.name,
+    e.name
+FROM exerciseCategory as ec
+INNER JOIN exercise as e ON e.exerciseCategoryId = ec.exerciseCategoryId
+WHERE ec.parentCategoryId IS NULL;
+
+USE personaltrainer; -- The query above is a little confusing. At first glance, it's hard to tell which Name belongs to ExerciseCategory and which belongs to Exercise.
+SELECT 				 -- 9 rows
+	ec.name AS CategoryName,
+    e.name AS ExerciseName
+FROM exercise as e
+INNER JOIN exerciseCategory as ec ON e.exerciseCategoryId = ec.exerciseCategoryId
+WHERE ec.parentCategoryId IS NULL;
+
+USE personaltrainer; -- Select FirstName, LastName, and BirthDate from Client and EmailAddress from Login where Client.BirthDate is in the 1990s.
+SELECT 				 -- 35 rows
+	c.firstName,
+    c.lastName,
+    c.birthDate,
+    l.emailAddress
+FROM client as c
+INNER JOIN login as l ON c.clientId = l.clientId
+WHERE c.birthDate BETWEEN '1990-01-01' AND '1999-12-31';
+
+USE personaltrainer; -- Select Workout.Name, Client.FirstName, and Client.LastName for Clients with LastNames starting with 'C'?
+SELECT -- 25 rows
+	w.name as WorkoutName,
+    c.firstName,
+    c.lastName
+FROM client as c
+INNER JOIN clientWorkout as cw ON c.clientId = cw.clientId
+INNER JOIN workout as w ON w.workoutId = cw.workoutId
+WHERE c.lastName LIKE 'C%';
+
+USE personaltrainer; -- Select Names from Workouts and their Goals. 78 rows
+SELECT 
+	w.name as WorkoutName,
+    g.name as GoalName
+FROM workout as w
+INNER JOIN workoutGoal as wg ON w.workoutId = wg.workoutId
+INNER JOIN goal as g ON g.goalId = wg.goalId;
+
+USE personaltrainer; -- Select client names and email addresses. 
+SELECT 				 -- Join the tables, but make Login optional. (500 rows)
+	c.firstName,
+    c.lastName,
+    l.clientId,
+    l.emailAddress
+FROM client as c
+LEFT OUTER JOIN login as l ON c.clientId = l.clientId; 
+SELECT -- -- select Clients who do not have a Login.
+	c.firstName,
+    c.lastName
+FROM client as c
+LEFT OUTER JOIN login as l ON c.clientId = l.clientId
+WHERE l.clientId IS NULL; 
+
+USE personaltrainer;
+SELECT 
+	CONCAT (c.firstName, " ", c.lastName) as fullName,
+    l.clientId
+FROM client as c
+LEFT OUTER JOIN login as l ON c.clientId = l.clientId
+WHERE CONCAT (c.firstName, " ", c.lastName) = 'Romeo Seaward';
+
+USE personaltrainer; 
+SELECT 
+	ec.name;
+    ec.parentCatergoryId
+    exerciseCategory;
