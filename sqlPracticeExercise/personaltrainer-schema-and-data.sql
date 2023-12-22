@@ -11270,8 +11270,43 @@ FROM client as c
 LEFT OUTER JOIN login as l ON c.clientId = l.clientId
 WHERE CONCAT (c.firstName, " ", c.lastName) = 'Romeo Seaward';
 
-USE personaltrainer; 
-SELECT 
-	ec.name;
-    ec.parentCatergoryId
-    exerciseCategory;
+USE personaltrainer; -- Select ExerciseCategory.Name and its parent ExerciseCategory's Name.
+SELECT -- This requires a self-join. (12 rows)
+    parent.name AS parentName,
+    child.name AS childName
+FROM exerciseCategory parent
+INNER JOIN exerciseCategory child ON parent.parentCategoryId = child.exerciseCategoryId;
+
+USE personaltrainer; -- Rewrite the query above so that every ExerciseCategory.Name is included, even if it doesn't have a parent.
+SELECT -- (16 rows)
+	parent.name AS parentName,
+    child.name AS childName
+FROM exerciseCategory child
+LEFT OUTER JOIN exerciseCategory parent ON parent.exerciseCategoryId = child.parentCategoryId;
+
+USE personaltrainer; -- Are there Clients who are not signed up for a Workout?
+SELECT 	-- 50 rows
+	c.firstName,
+    c.lastName,
+    c.clientId,
+    w.workoutId
+FROM client AS c
+LEFT OUTER JOIN clientWorkout AS cw ON c.clientId = cw.clientId
+LEFT OUTER JOIN workout AS w ON w.workoutId = cw.workoutId
+WHERE w.workoutId IS NULL;
+
+USE personaltrainer; -- Which Beginner-Level Workouts satisfy at least one of Shell Creane's Goals?
+SELECT -- 6 rows, 4 unique rows HOW DO YOU GET 4 unique rows?
+	w.name AS workOutName,
+    w.levelId AS beginnerLevel,
+    g.name AS goalName,
+    c.firstName,
+    c.lastName
+FROM client AS c 
+INNER JOIN clientGoal AS cg ON c.clientId = cg.clientId
+INNER JOIN goal AS g ON g.goalId = cg.goalId
+INNER JOIN workoutGoal AS wg ON wg.goalId = g.goalId
+INNER JOIN workout AS w ON w.workoutId = wg.workoutID
+WHERE w.levelId = 1 AND CONCAT(c.firstName, " ", c.lastName) = 'Shell Creane';
+
+-- ACTIVITY 13 and 14 -- 
