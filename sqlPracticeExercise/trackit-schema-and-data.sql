@@ -1125,3 +1125,205 @@ FROM Worker w
 CROSS JOIN Project p
 WHERE w.WorkerId = 1
 AND p.ProjectId NOT LIKE 'game-%';
+
+
+-- Sorting and Limiting Query Results --
+
+SELECT * -- Our Workers are sorted from last name "Achromov" to "Zorzi." 
+FROM Worker
+ORDER BY LastName;
+
+-- Sort ascending by LastName.
+-- ASC is not strictly required because it is the default sort direction.
+SELECT * 
+FROM Worker
+ORDER BY LastName ASC;
+
+-- Sort descending by LastName.
+SELECT * 
+FROM Worker
+ORDER BY LastName DESC;
+
+SELECT -- Sorting is no different for JOIN queries.
+  w.FirstName,
+  w.LastName,
+  p.Name ProjectName
+FROM Worker w
+INNER JOIN ProjectWorker pw ON w.WorkerId = pw.WorkerId
+INNER JOIN Project p ON pw.ProjectId = p.ProjectId
+ORDER BY w.LastName ASC;
+
+SELECT -- First, we sort by a Worker's last name, then we sort by the Project's name.
+  w.FirstName,
+  w.LastName,
+  p.Name ProjectName
+FROM Worker w
+INNER JOIN ProjectWorker pw ON w.WorkerId = pw.WorkerId
+INNER JOIN Project p ON pw.ProjectId = p.ProjectId
+ORDER BY w.LastName ASC, p.Name ASC;
+
+SELECT -- If we want Workers by last name descending and Projects by project name ascending
+  w.FirstName,
+  w.LastName,
+  p.Name ProjectName
+FROM Worker w
+INNER JOIN ProjectWorker pw ON w.WorkerId = pw.WorkerId
+INNER JOIN Project p ON pw.ProjectId = p.ProjectId
+ORDER BY w.LastName DESC, p.Name ASC;
+
+SELECT -- null stored first
+  t.Title,
+  s.Name StatusName
+FROM Task t
+LEFT OUTER JOIN TaskStatus s ON t.TaskStatusId = s.TaskStatusId
+ORDER BY s.Name ASC;
+
+-- Results are sorted non-null to null, then by TaskStatus.Name.
+-- That puts NULL values last.
+SELECT
+  t.Title,
+  s.Name StatusName
+FROM Task t
+LEFT OUTER JOIN TaskStatus s ON t.TaskStatusId = s.TaskStatusId
+ORDER BY ISNULL(s.Name), s.Name ASC;
+
+SELECT *
+FROM Worker
+ORDER BY LastName DESC
+LIMIT 0, 10;
+
+SELECT * -- Row offset is optional and uses the default value 0; same as above
+FROM Worker
+ORDER BY LastName DESC
+LIMIT 10;
+
+SELECT *
+FROM Worker
+ORDER BY LastName DESC
+LIMIT 10, 10;
+
+SELECT * -- There's no error. The result is empty. No records are returned.
+FROM Worker
+ORDER BY LastName DESC
+LIMIT 200, 10;
+
+-- Skip the first 100 records and show the next 25.
+SELECT
+  w.FirstName,
+  w.LastName,
+  p.Name ProjectName
+FROM Worker w
+INNER JOIN ProjectWorker pw ON w.WorkerId = pw.WorkerId
+INNER JOIN Project p ON pw.ProjectId = p.ProjectId
+ORDER BY w.LastName DESC, p.Name ASC
+LIMIT 100, 25;
+
+SELECT
+  p.Name ProjectName,
+  p.ProjectId
+FROM Project p
+INNER JOIN Task t ON p.ProjectId = t.ProjectId
+ORDER BY p.Name;
+
+SELECT DISTINCT -- To remove the duplicates, we add DISTINCT.
+  p.Name ProjectName,
+  p.ProjectId
+FROM Project p
+INNER JOIN Task t ON p.ProjectId = t.ProjectId
+ORDER BY p.Name;
+
+USE TrackIt;
+
+-- Count TaskIds, 543 values
+SELECT COUNT(TaskId)
+FROM Task;
+
+-- Count everything, 543 values
+SELECT COUNT(*)
+FROM Task;
+
+-- 532
+SELECT COUNT(TaskStatusId)
+FROM Task;
+
+SELECT --  276 resolved Tasks
+  COUNT(t.TaskId)
+FROM Task t
+INNER JOIN TaskStatus s ON t.TaskStatusId = s.TaskStatusId
+WHERE s.IsResolved = 1;
+
+SELECT
+  IFNULL(s.Name, '[None]') StatusName,
+  COUNT(t.TaskId) TaskCount
+FROM Task t
+LEFT OUTER JOIN TaskStatus s ON t.TaskStatusId = s.TaskStatusId
+GROUP BY s.Name
+ORDER BY s.Name;
+
+SELECT
+  IFNULL(s.Name, '[None]') StatusName,
+  IFNULL(s.IsResolved, 0) IsResolved,
+  COUNT(t.TaskId) TaskCount
+FROM Task t
+LEFT OUTER JOIN TaskStatus s ON t.TaskStatusId = s.TaskStatusId
+GROUP BY s.Name, s.IsResolved -- IsResolved is now part of the GROUP.
+ORDER BY s.Name;
+
+SELECT DISTINCT
+  p.Name ProjectName,
+  p.ProjectId
+FROM Project p
+INNER JOIN Task t ON p.ProjectId = t.ProjectId
+ORDER BY p.Name;
+
+SELECT -- same as distinct; above one ^
+  p.Name ProjectName,
+  p.ProjectId
+FROM Project p
+INNER JOIN Task t ON p.ProjectId = t.ProjectId
+GROUP BY p.Name, p.projectId -- need to place BOTH nonaggregates columns to work
+ORDER BY p.Name;
+
+SELECT
+  CONCAT(w.FirstName, ' ', w.LastName) WorkerName,
+  SUM(t.EstimatedHours) TotalHours
+FROM Worker w
+INNER JOIN ProjectWorker pw ON w.WorkerId = pw.WorkerId
+INNER JOIN Task t ON pw.WorkerId = t.WorkerId
+  AND pw.ProjectId = t.ProjectId
+GROUP BY w.WorkerId, w.FirstName, w.LastName;
+
+SELECT
+  CONCAT(w.FirstName, ' ', w.LastName) WorkerName,
+  SUM(t.EstimatedHours) TotalHours
+FROM Worker w
+INNER JOIN ProjectWorker pw ON w.WorkerId = pw.WorkerId
+INNER JOIN Task t ON pw.WorkerId = t.WorkerId
+  AND pw.ProjectId = t.ProjectId
+GROUP BY w.FirstName, w.LastName
+HAVING SUM(t.EstimatedHours) >= 100
+ORDER BY SUM(t.EstimatedHours) DESC;
+
+SELECT
+  p.Name ProjectName,
+  MIN(t.DueDate) MinTaskDueDate
+FROM Project p
+INNER JOIN Task t ON p.ProjectId = t.ProjectId
+WHERE p.ProjectId LIKE 'game-%'
+  AND t.ParentTaskId IS NOT NULL
+GROUP BY p.ProjectId, p.Name
+ORDER BY p.Name;
+
+SELECT
+  p.Name ProjectName,
+  MIN(t.DueDate) MinTaskDueDate,
+  MAX(t.DueDate) MaxTaskDueDate,
+  SUM(t.EstimatedHours) TotalHours,
+  AVG(t.EstimatedHours) AverageTaskHours,
+  COUNT(t.TaskId) TaskCount
+FROM Project p
+INNER JOIN Task t ON p.ProjectId = t.ProjectId
+WHERE t.ParentTaskId IS NOT NULL
+GROUP BY p.ProjectId, p.Name
+HAVING COUNT(t.TaskId) >= 10
+ORDER BY COUNT(t.TaskId) DESC, p.Name;
