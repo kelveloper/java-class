@@ -1,3 +1,5 @@
+package com.sg.foundations.flowcontrol.methods;
+
 import java.util.Random;
 
 public class BarelyControlledChaos {

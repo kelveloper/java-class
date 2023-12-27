@@ -1,3 +1,5 @@
+package com.sg.foundations.flowcontrol.arrays;
+
 import java.util.Random;
 
 public class HiddenNuts {
