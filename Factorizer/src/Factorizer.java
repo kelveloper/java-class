@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Factorizer {
-    public static void main(String[] args) {
+    public void factor() {
         int userInput;
         int count = 0;
         int perfectNum = 0;
@@ -38,6 +38,5 @@ public class Factorizer {
         if (count == 2) {
             System.out.println(userInput + " is a prime number");
         } else System.out.println(userInput + " is not a prime number");
-
     }
 }

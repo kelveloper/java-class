@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class LuckySevens {
-    public static void main(String[] args) {
+    public void seven() {
 
         int userMoney, dieOne, dieTwo, sum, countRolls = 0, maxAmount = 0, countRollsWhenMax = 0;
 

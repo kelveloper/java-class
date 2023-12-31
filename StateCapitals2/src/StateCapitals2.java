@@ -40,7 +40,7 @@ public class StateCapitals2 {
         }
 
         System.out.println(count + " STATES & CAPITALS ARE LOADED."); // 50 needs to be read from the HashMap
-        System.out.println("=======");
+        System.out.println("================================");
         System.out.println("HERE ARE THE STATES :");
         System.out.print(state1);
         System.out.println();
@@ -64,6 +64,7 @@ public class StateCapitals2 {
 
 
        // System.out.println(stateCapital.size());
+        System.out.println();
         System.out.println("READY TO TEST YOUR KNOWLEDGE? WHAT IS THE CAPITAL OF '"
                 + randomState + "'?");
         String answer = inputUser.nextLine();

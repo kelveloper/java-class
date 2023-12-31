@@ -3,7 +3,7 @@ import java.math.RoundingMode;
 import java.util.Scanner;
 
 public class InterestCalculator {
-    public static void main(String[] args) {
+    public void calculateInterest() {
 
         int annualInterestRate, years;
         double quarterlyInterestRate, principal;
