@@ -11192,7 +11192,7 @@ SELECT -- Select GoalId from WorkoutGoal where the WorkoutId matches the Workout
 	goalId
 FROM workoutGoal
 WHERE workoutId = 12; -- 3,8,15
-SELECT
+SELECT -- Select the goal name from Goal where the GoalId is one of the GoalIds from your second query. (3 rows)
 	name
 FROM goal
 WHERE goalId = 3 or goalId = 8 or goalId = 15;
@@ -11310,3 +11310,6 @@ INNER JOIN workout AS w ON w.workoutId = wg.workoutID
 WHERE w.levelId = 1 AND CONCAT(c.firstName, " ", c.lastName) = 'Shell Creane';
 
 -- ACTIVITY 13 and 14 -- 
+USE personaltrainer;
+-- SELECT 
+	

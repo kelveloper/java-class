@@ -10,7 +10,7 @@ CREATE TABLE genre (
 	genreId INT AUTO_INCREMENT,
 		CONSTRAINT pk_genre
 			PRIMARY KEY (genreId),
-	genreName VARCHAR(30)
+	genreName VARCHAR(30) NOT NULL
 );
 DESCRIBE genre;
 

@@ -53,7 +53,7 @@ public class StudentQuizGradesView {
         ArrayList<Integer> quizList = new ArrayList<>();
         int quizGrade  = io.readInt("Please enter a List of Quiz  Grade");
         while(io.readInt() != 0) {
-            quizList.
+            quizList.≈Ω.
         }
 
     }
