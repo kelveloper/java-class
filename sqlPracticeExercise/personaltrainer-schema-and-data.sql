@@ -11072,6 +11072,7 @@ insert into InvoiceLineItem(InvoiceId, Description, Price, Quantity, ServiceDate
     
 -- Practice Exercises: SELECT Queries --
     
+    
 USE personaltrainer; 
 SELECT * FROM exercise; -- Select all rows and columns from the Exercise table. (64 rows)
     
@@ -11197,7 +11198,10 @@ SELECT -- Select the goal name from Goal where the GoalId is one of the GoalIds 
 FROM goal
 WHERE goalId = 3 or goalId = 8 or goalId = 15;
 
+
 -- Practice Exercises: JOIN Queries --
+
+
 USE personaltrainer; -- Select all columns from ExerciseCategory and Exercise. 64 rows
 SELECT *
 FROM exerciseCategory as ec
@@ -11296,20 +11300,56 @@ LEFT OUTER JOIN workout AS w ON w.workoutId = cw.workoutId
 WHERE w.workoutId IS NULL;
 
 USE personaltrainer; -- Which Beginner-Level Workouts satisfy at least one of Shell Creane's Goals?
-SELECT -- 6 rows, 4 unique rows HOW DO YOU GET 4 unique rows?
+SELECT -- 6 rows, 4 unique rows HOW DO YOU GET 4 unique rows? Check next SELECT
 	w.name AS workOutName,
     w.levelId AS beginnerLevel,
     g.name AS goalName,
     c.firstName,
     c.lastName
-FROM client AS c 
-INNER JOIN clientGoal AS cg ON c.clientId = cg.clientId
-INNER JOIN goal AS g ON g.goalId = cg.goalId
-INNER JOIN workoutGoal AS wg ON wg.goalId = g.goalId
-INNER JOIN workout AS w ON w.workoutId = wg.workoutID
+FROM workout AS w 
+INNER JOIN workoutGoal AS wg ON wg.workoutId = w.workoutId
+INNER JOIN goal AS g ON g.goalId = wg.goalId
+INNER JOIN clientGoal AS cg ON cg.goalId = g.goalId
+INNER JOIN client AS c ON c.clientId = cg.clientId
+WHERE w.levelId = 1 AND CONCAT(c.firstName, " ", c.lastName) = 'Shell Creane';
+SELECT DISTINCT -- Which Beginner-Level Workouts satisfy at least one of Shell Creane's Goals?
+	w.name AS workOutName --  4 unique rows
+FROM workout AS w 
+INNER JOIN workoutGoal AS wg ON wg.workoutId = w.workoutId
+INNER JOIN goal AS g ON g.goalId = wg.goalId
+INNER JOIN clientGoal AS cg ON cg.goalId = g.goalId
+INNER JOIN client AS c ON c.clientId = cg.clientId
 WHERE w.levelId = 1 AND CONCAT(c.firstName, " ", c.lastName) = 'Shell Creane';
 
--- ACTIVITY 13 and 14 -- 
 USE personaltrainer;
--- SELECT 
-	
+SELECT -- Select Workout.Name and Exercise.Name for related Workouts and Exercises. (744 rows)
+	w.name AS workoutName,
+    e.name AS exerciseName
+FROM workout AS w 
+INNER JOIN workoutDay AS wd ON w.workoutId = wd.workoutId
+INNER JOIN workoutDayExerciseInstance AS wdei ON wdei.workoutDayId = wd.workoutDayId
+INNER JOIN exerciseInstance AS ei ON ei.exerciseInstanceId = wdei.exerciseInstanceId
+INNER JOIN exercise AS e ON e.exerciseId = ei.exerciseId;
+
+USE  personaltrainer;
+SELECT 
+    e.name AS exerciseName,
+    eiuv.value AS value,
+    u.name AS unitName
+FROM
+    exercise AS e
+        INNER JOIN
+    exerciseInstance AS ei ON ei.exerciseId = e.exerciseId
+        INNER JOIN
+    exerciseInstanceUnitValue AS eiuv ON eiuv.exerciseInstanceId = ei.exerciseInstanceId
+        INNER JOIN
+    unit AS u ON u.unitId = eiuv.unitId
+WHERE
+    e.name = 'Plank';
+
+
+-- Practice Exercises: Grouping and Sorting --
+
+
+USE  personaltrainer;
+SELECT 
