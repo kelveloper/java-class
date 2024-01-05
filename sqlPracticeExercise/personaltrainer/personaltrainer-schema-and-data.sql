@@ -11352,4 +11352,78 @@ WHERE
 
 
 USE  personaltrainer;
+SELECT COUNT(*) -- Use an aggregate to count the number of Clients. (1 row)
+FROM client;
+
+USE personaltrainer; -- Use an aggregate to count Client.BirthDate. (1 row)
 SELECT 
+	COUNT(c.birthDate)
+FROM client AS c;
+
+USE personaltrainer; 
+SELECT -- Group Clients by City and count them. (20 rows)
+	c.city,
+    COUNT(c.city)
+FROM client as c
+GROUP BY c.city;
+
+USE personaltrainer; 
+SELECT -- Calculate a total per invoice using only the InvoiceLineItem table. (1000 rows)
+	i.invoiceId,
+    SUM(ili.price * ili.quantity) AS invoiceTotal
+FROM invoice AS i
+INNER JOIN invoiceLineItem AS ili ON ili.invoiceId = i.invoiceId 
+GROUP BY i.invoiceId;
+
+USE personaltrainer; 
+SELECT -- Modify the previous query: Only include totals greater than $500.00 && Sort from lowest total to highest. (234 rows)
+	i.invoiceId,
+    SUM(ili.price * ili.quantity) AS invoiceTotal
+FROM invoice AS i
+INNER JOIN invoiceLineItem AS ili ON ili.invoiceId = i.invoiceId 
+GROUP BY i.invoiceId
+HAVING SUM(ili.price * ili.quantity) > 500
+ORDER BY SUM(ili.price * ili.quantity);
+
+USE personaltrainer; 
+SELECT -- Calculate the average line item total, grouped by InvoiceLineItem.Description. (3 rows)
+	ili.description,
+    AVG(ili.price * ili.quantity) AS invoiceAverage
+FROM invoiceLineItem AS ili 
+GROUP BY ili.description;
+
+USE personaltrainer; 
+SELECT -- Select ClientId, FirstName, and LastName from Client for clients who have paid over $1000 total. (146 rows)
+	c.ClientId,
+    c.FirstName,
+    c.LastName,
+    SUM(ili.price * ili.quantity) AS Total
+FROM client AS c
+INNER JOIN invoice AS i ON c.clientId = i.clientId
+INNER JOIN invoiceLineItem AS ili ON ili.invoiceId = i.invoiceId
+WHERE i.invoiceStatus = 2 -- Paid is Invoice.InvoiceStatus = 2
+GROUP BY c.clientId, c.firstName, c.lastName 
+HAVING SUM(ili.price * ili.quantity) > 1000
+ORDER BY c.lastName, c.firstName; -- Sort by LastName, then FirstName
+
+USE personaltrainer; 
+SELECT -- Count exercises by category (13 rows)
+	ec.name AS CategoryName,
+    COUNT(ec.exerciseCategoryId) as EXerciseCount
+FROM exerciseCategory AS ec 
+INNER JOIN exercise AS e ON e.exerciseCategoryId = ec.exerciseCategoryId
+GROUP BY ec.name
+ORDER BY COUNT(ec.exerciseCategoryId) DESC; -- Sort by exercise count descending
+
+USE personaltrainer; 
+SELECT -- Select Exercise.Name along with the minimum, maximum, and average ExerciseInstance.Sets (64 rows)
+	e.name AS ExerciseName, -- DOESN'T COME OUT 64 ROWS, INSTEAD 61 ROWS? 
+    MIN(ei.sets),
+    MAX(ei.sets),
+    AVG(ei.sets)
+FROM exercise AS e
+INNER JOIN exerciseInstance AS ei ON ei.exerciseId = e.exerciseId
+GROUP BY e.name
+ORDER BY e.name;
+
+    -- Activity 10 - 16 -- 
