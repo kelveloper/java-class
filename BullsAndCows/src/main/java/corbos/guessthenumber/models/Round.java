@@ -4,10 +4,11 @@ import java.time.LocalDateTime;
 
 public class Round {
     public int id;
-    private Game gameId; // get primary key id from table Game
+    private int gameId; // get primary key id from table Game
     private String guess;
     private LocalDateTime guessTime;
     private String result;
+
 
     public int getId() {
         return id;
@@ -17,11 +18,11 @@ public class Round {
         this.id = id;
     }
 
-    public Game getGameId() {
+    public int getGameId() {
         return gameId;
     }
 
-    public void setGameId(Game gameId) {
+    public void setGameId(int gameId) {
         this.gameId = gameId;
     }
 
